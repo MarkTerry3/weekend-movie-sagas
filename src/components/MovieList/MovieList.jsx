@@ -8,7 +8,6 @@ function MovieList() {
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
     const history = useHistory();
-    const singleMovie = useSelector(store => store.movieDetails)
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
@@ -18,8 +17,8 @@ function MovieList() {
     const movieDetails = (movie) => {
         console.log('clicked a movie', movie.id, movie);
         dispatch({type: 'STORE_MOVIE_DETAILS', payload: movie})
+        dispatch({type: 'FETCH_MOVIE_GENRE', payload: movie.id})
         history.push('/details')
-        console.log(singleMovie);
     }
 
 
