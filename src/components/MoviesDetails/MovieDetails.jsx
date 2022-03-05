@@ -1,24 +1,30 @@
 import {useSelector} from 'react-redux'; 
 import { useHistory } from 'react-router-dom';
-
+import { useEffect } from 'react';
 
 
 
 function MovieDetails () {
 
+    useEffect(() => {
+    }, []);
+
+//access reducer for the specific movie
     const movie = useSelector(store => store.movieDetail)
-    // history = useHistory();
+    const history = useHistory();
 
 
     const goBack = () => {
-        // history.push('/');
+        history.push('/');
     }
 
-//access reducer for the specific movie
+
 
     return(
         <>
-            <p>{movie}</p>
+            <img src={movie.poster} />
+            <p>{movie.title}</p>
+            <p>{movie.description}</p>
             <button onClick={goBack}>Go Back</button>
         </>
     )

@@ -17,17 +17,17 @@ function* rootSaga() {
     // yield takeEvery('MOVIE_DESCRIPTION', fetchSpecificMovie);
 }
 
-function* fetchSpecificMovie () {
-    // try{
-    //     const specMovie = yield axios.get('api/details/:id');
-    //     console.log('get specific movie', specMovie.data);
-    //     yield put({ type: 'STORE_MOVIE_DETAILS', payload: specMovie.data});
+// function* fetchSpecificMovie () {
+//     try{
+//         const specMovie = yield axios.get('api/details/:id');
+//         console.log('get specific movie', specMovie.data);
+//         yield put({ type: 'STORE_MOVIE_DETAILS', payload: specMovie.data});
         
-    // } catch {
-    //     console.log('GET specMovie fail');
+//     } catch {
+//         console.log('GET specMovie fail');
         
-    // }
-}
+//     }
+// }
 
 
 function* fetchAllMovies() {
@@ -81,6 +81,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieDetail,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
