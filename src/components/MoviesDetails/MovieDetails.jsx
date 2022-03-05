@@ -7,6 +7,7 @@
 function MovieDetails () {
     return(
         <>
+            <p>hyello</p>
         </>
     )
 }
