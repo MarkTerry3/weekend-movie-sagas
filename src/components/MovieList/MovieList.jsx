@@ -14,9 +14,11 @@ function MovieList() {
     }, []);
 
 
-    // const movieDetails = () => {
-    //     console.log('clicked a movie', movie.id);
-    // }
+    const movieDetails = (movie) => {
+        console.log('clicked a movie', movie.id, movie);
+        dispatch({type: 'STORE_MOVIE_DETAILS', payload: movie})
+        history.push('/details')
+    }
 
 
     return (
@@ -24,16 +26,10 @@ function MovieList() {
             <h1>MovieList</h1>
             <section className="movies">
                 {movies.map(movie => {
-                        const movieDetails = () => {
-                            console.log('clicked a movie', movie.id);
-                            dispatch({type: 'MOVIE_DESCRIPTION', payload: movie.id})
-                            history.push('/details');
-
-                        }
                     return (
-                        <div key={movie.id} onClick={movieDetails}>
+                        <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
+                            <img src={movie.poster} alt={movie.title} onClick={() => movieDetails(movie)}/>
                         </div>
                     );
                 })}
